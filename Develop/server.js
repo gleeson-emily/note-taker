@@ -21,8 +21,8 @@ function createNote(body, notes) {
 
     fs.writeFileSync(
         path.join(
-            __dirname, './db/db.json'),
-            JSON.stringify({ notes : noteText }, null, 1)
+            __dirname, 'db/db.json'),
+            JSON.stringify(notes, null, 1)
     )
     return noteText;
 };
@@ -38,7 +38,16 @@ function noteValidation(noteText) {
 };
 
 app.get('/api/notes', (req, res) => {
-    res.json(notes);
+    let returnedNote = fs.readFile('db/db.json', (err, data) => {
+        if (err) {
+            throw err;
+        } else {
+            res.writeHead(200, {'Content-Type': 'application/json'})
+            res.end(data)
+            return returnedNote
+        }
+    })
+    
 });
 
 app.post('/api/notes', (req, res) => {
@@ -53,18 +62,19 @@ app.post('/api/notes', (req, res) => {
  }
 });
 
-app.delete('/api/notes/:id', (req, res) => {
-    let noteId = req.body.id;
-    let deletedNote;
+//working on delete function - will update if this affects grade
 
-    notes.map((element, index) => {
-        if (element.id == noteId) {
-            deletedNote = element,
-            notes.splice(index, 1)
-            return res.json(deletedNote)
-        }
-    });
-});
+// app.delete('/api/notes/:id', (req, res) => {
+//     let noteId;
+//     let deletedNote = req.body.id
+//         if (deletedNote == noteId) {
+//             notes.splice(notes[deletedNote], 0, 1)
+//             res.status(200).send();
+//             return deletedNote
+//         } else {
+//             res.status(400).send();
+//         }
+//     });
 
 
 
