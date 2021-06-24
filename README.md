@@ -8,9 +8,9 @@
   ## Description
   This is a simple note taker app that allows users to save and update notes.
   ## Installation Instructions
-  Install Node.js and the Express module. Download repository from git and open in VS Code. You can also use the deployed version on Heroku.
+  Install Node.js and the Express module. Download repository from git and open in VS Code. You can also use the deployed version on [Heroku](https://dashboard.heroku.com/apps/aqueous-escarpment-46470).
   ## Usage Information
-  Use by entering "node index.js" on the command line and navigating to localhost:3000 (or other port, if necessary). Alternatively, use the deployed version on Heroku.
+  Use by entering "node index.js" on the command line and navigating to localhost:3000 (or other port, if necessary). Alternatively, use the deployed version on [Heroku](https://dashboard.heroku.com/apps/aqueous-escarpment-46470).
 
   ## NOTE
   I was unfortunately unable to get the delete functionality working properly. I'll be revisiting this and updating it in the future when my schedule allows for it.
